@@ -18,7 +18,7 @@ public class Product
     {
 
         Random rnd = new Random();
-        code = rnd.Next(1, 99999999);
+        code = rnd.Next(1, 999999);
         this.name = name;
         this.description = description;
         this.price = price;
@@ -26,9 +26,9 @@ public class Product
     }
 
     //properties
-    public int Code
+    public string Code
     {
-        get { return code; }
+        get { return GetCode(); }
     }
 
     public string Name
@@ -65,7 +65,7 @@ public class Product
             $"Descrizione prodotto: {description} {bk}" +
             $"Prezzo prodotto: {price}$ {bk}" +
             $"Iva prodotto: {iva}% {bk}" +
-            $"Codice prodotto: {code} {bk}";
+            $"Codice prodotto: {Code} {bk}";
     }
 
     public double GetFullprice()
@@ -80,7 +80,7 @@ public class Product
         {
             string codeStr = code.ToString();
 
-            for (int i = codeStr.Length; i <= 8; i++)
+            for (int i = codeStr.Length; i < 8; i++)
             {
                 codeStr = "0" + codeStr;
             }

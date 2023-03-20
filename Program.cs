@@ -7,5 +7,4 @@ foreach (Product product in productList)
 {
     Console.WriteLine(product.ToString());
     Console.WriteLine($"prezzo iva compresa: {product.GetFullprice()}");
-    Console.WriteLine($"codice con pad {product.GetCode()}");
 }
