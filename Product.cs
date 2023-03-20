@@ -16,9 +16,9 @@ public class Product
     //constructor
     public Product(string name, string description, double price, double iva)
     {
+
         Random rnd = new Random();
         code = rnd.Next(1, 99999999);
-
         this.name = name;
         this.description = description;
         this.price = price;
@@ -63,7 +63,7 @@ public class Product
             $"{bk}" +
             $"Nome prodotto: {name} {bk}" +
             $"Descrizione prodotto: {description} {bk}" +
-            $"Prezzo prodotto: {price}€ {bk}" +
+            $"Prezzo prodotto: {price}$ {bk}" +
             $"Iva prodotto: {iva}% {bk}" +
             $"Codice prodotto: {code} {bk}";
     }
@@ -72,6 +72,24 @@ public class Product
     {
         double tax = (price / 100) * iva;
         return price + tax;
+    }
+
+    public string GetCode()
+    {
+        if (code.ToString().Length < 8)
+        {
+            string codeStr = code.ToString();
+
+            for (int i = codeStr.Length; i <= 8; i++)
+            {
+                codeStr = "0" + codeStr;
+            }
+            return codeStr;
+        }
+        else
+        {
+            return code.ToString();
+        }
     }
 };
 

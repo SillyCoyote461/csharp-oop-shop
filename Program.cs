@@ -30,4 +30,6 @@ Product pasta = new Product(name, description, price, iva);
 
 Console.WriteLine(pasta.ToString());
 
-Console.WriteLine($"Prezzo iva compreso: {pasta.GetFullprice()}");
+Console.WriteLine($"Prezzo iva compreso: {pasta.GetFullprice()}$");
+
+Console.WriteLine($"Codice seriale: {pasta.GetCode()}");
