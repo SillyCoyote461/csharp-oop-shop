@@ -7,24 +7,23 @@ using System.Threading.Tasks;
 
 public class Product
 {
-    private int code;
+    private readonly int code;
     private string name;
     private string description;
     private double price;
     private double iva;
 
+    //constructor
     public Product(string name, string description, double price, double iva)
     {
         Random rnd = new Random();
-        this.code = rnd.Next(1, 99999999);
+        code = rnd.Next(1, 99999999);
 
         this.name = name;
         this.description = description;
         this.price = price;
         this.iva = iva;
     }
-
-
 
     //properties
     public int Code
@@ -56,6 +55,7 @@ public class Product
         set { iva = value; }
     }
 
+    //methods
     public override string ToString()
     {
         var bk = Environment.NewLine;
@@ -68,5 +68,10 @@ public class Product
             $"Codice prodotto: {code} {bk}";
     }
 
+    public double GetFullprice()
+    {
+        double tax = (price / 100) * iva;
+        return price + tax;
+    }
 };
 
